@@ -23,6 +23,7 @@ $("#send").click(function(){
   //      alert("Data: " + data + "\nStatus: " + status);
   //  });
 window.location.replace("debrief.html");
+return(false);
     });
 
 });
