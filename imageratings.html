@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+ 
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="squares.css" type="text/css" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="sessvars.js"></script>
+                <script type="text/javascript" src="imageratingsscript.js"></script>
+</head>
+ 
+<body>
+    <h2>Now please rate each of the characters using the scales on the right</h2>
+
+        <form id="debrief">
+        <div class="frame" id="ratingsleft">
+        	<img id="topleftimg" src=""></img>
+        </div>
+        <div class="frame" id="ratings">
+            <label for="age">How old do you think this person is?</label>
+            <input class="rating" id="age" type="range"/>
+                        <label for="age">Do you think this person is more likely to have a higher or lower social status?</label>
+            <input class="rating" id="soc" type="range"/>
+                        <label for="age">Do you think this person is local?</label>
+            <input class="rating" id="age" type="range"/>
+                        <label for="age">Would you like to have this person as your friend?</label>
+            <input class="rating" id="age" type="range"/>
+                        <label for="age">Do you know many people like this?</label>
+            <input class="rating" id="age" type="range"/>
+             <button id="next">Next</button>
+        </div>
+        <p class="submit"></p>
+</form>
+</body>
+</html>

@@ -1,7 +1,7 @@
 
  
 body {
-    width: 660px;
+    width: 700px;
     display: block;
     margin: 10px auto;
 }
@@ -171,6 +171,33 @@ img.edinburgh {
  }
  h1 {text-align: center;}
  h2 {text-align: center;}
+/* image ratings */
+#ratingsleft {
+        background: #747171;
+        width: 300px;
+        height: 300px;
+        margin: 5px;
+        display: block;
+        float: left;
+        border-radius: 15px;    
+    }
+#ratings {
+        border-style:dotted;
+        width: 320px;
+        height: 300px;
+        margin: 5px;
+        display: block;
+        float: left;
+        border-radius: 5px;    
+    }
 
-
-
+#debrief input.rating {
+    display: block;
+    margin-left: 10px;
+     margin-right: 10px;
+}
+#debrief label {
+    display: block;
+    margin-left: 10px;
+     margin-right: 10px;
+}
