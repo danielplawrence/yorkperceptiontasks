@@ -10,17 +10,26 @@ nimages=images.length;
 
 $("#next").click(function(){
   console.log("click!");
+
+  if (i>0){
 //here is where the cycling happens
-if (i<nimages){
-///add form contents to array of responses
 response=logResponse();
 ratings.push(response);
+console.log(ratings);
+if (i<nimages){
+///add form contents to array of responses
 changeImage("#topleftimg",images[i]);
-i=i+1
+i++;
 } else {
 sessvars.imageRatings=ratings;
 window.location.replace("exit.html")
 }
+}
+
+if (i==0){
+changeImage("#topleftimg",images[i]);
+i++}
+
     });
 
 function logResponse(){

@@ -18,7 +18,7 @@ for (i=0;i<totaln;i++){
   for (j=0;j<nimage;j++){
     if (target==images[j][0]){
       var stringtoadd=images[j].toString();
-      dataarray[i]= dataarray[i]+","+stringtoadd+",";
+      dataarray[i]= dataarray[i]+","+stringtoadd;
     }
 }
 
@@ -44,12 +44,17 @@ $("#send").click(function(){
        partData=$("#form1").serializeArray();
        console.log(partData);
        console.log(sessvars.myObj);
+       biolength=partData.length;
+       for (i=0;i<biolength;i++){
+        if(partData[i].value=="")partData[i].value="NA";
+       }
        var biodata=partData[0].value+","+partData[1].value+","+partData[2].value+","+partData[3].value+","+partData[4].value;
        for (i=0;i<totaln;i++){
       dataarray[i]= dataarray[i]+","+biodata+"\r\n";}
       output=dataarray.toString();
       console.log(output);
-       });
+      window.location.replace("debrief.html");
+       
 
 
        //$.post("http://blake.ppls.ed.ac.uk/~s1122689/script.php",
@@ -59,9 +64,8 @@ $("#send").click(function(){
  //   function(data, status){
   //      alert("Data: " + data + "\nStatus: " + status);
   //  });
-//window.location.replace("debrief.html");
 //return(false);
 ////////////////////////////////////////////////////////////////////////////////////////////
-
+});
 });
 

@@ -1,5 +1,8 @@
 $(document).ready(function() {
-
+//declare global variables
+var t= new Date();
+var trialinfo= [];
+var soundinfo=[];
 //initialize output array
 output= new String;
 user="Daniel";
@@ -37,7 +40,6 @@ sessvars.images=images;
 //array of audio stimuli
 var sounds =[sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,sound10];
 var nsounds=sounds.length;
-//trials
 //older, choose class and localness
 var trial1 ={images:[image2,image4,image6,image8],constant:"age",value:"O",sound:""};
 //younger, choose class and localness
@@ -96,19 +98,40 @@ console.log("BR "+trial.images[3].file);
 }
  //Keypress detection
  //temp var for logging trials
- var i=0;
+var i=0;
+////set up first trial
+function present(){
+  //get the time
+  stime=$.now();
+  t=new Date();
+  trialinfo= [items[i].constant,items[i].value];
+ soundinfo=[items[i].sound.name,items[i].sound.speaker,items[i].sound.vowel,items[i].sound.variant];
+    setTrial(items[i]);
+  playSound(items[i].sound.file);
+
+}
+
+
+$("#start").click(function(){
+
+present();
+
+});
+
+
 $(document).keydown(function(event) {
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+if (keycode==69|keycode==68|keycode==73|keycode==74|keycode==13){
+
+  //log trial ouput
+  var info=[user,t,i];
+
   var keycode = (event.keyCode ? event.keyCode : event.which);
   console.log(keycode);
   console.log(i);
   var ans= getResponse(keycode);
-  //get the time
-  var t=new Date();
-  //log trial ouput
-  var info=[user,t,i];
-  var trialinfo= [items[i].constant,items[i].value];
-  var soundinfo=[items[i].sound.name,items[i].sound.speaker,items[i].sound.vowel,items[i].sound.variant];
-  thistrial_output=ans.concat(trialinfo);
+
+  var thistrial_output=ans.concat(trialinfo);
   thistrial_output=thistrial_output.concat(soundinfo);
   thistrial_output=info.concat(thistrial_output);
 
@@ -117,18 +140,16 @@ $(document).keydown(function(event) {
     console.log("This trial data as string:" + thistrial_output);
   thistrial_output+="\r\n";
   console.log("This trial data as string with newline:" + thistrial_output);
-    output=output.concat(thistrial_output);
- 	console.log(output);
+  output=output.concat(thistrial_output);
 
-  //e=69 d=68 i=73 j=74 
-setTrial(items[i]);
-playSound(items[i].sound.file);
-i++
-
+  i++
 if (i>=itemslength){
 	//this will eventually be where we terminate the experiment.
 window.location.replace("imageratings.html");
   sessvars.myObj=output;
+} else {
+  present();
+}
 }
 });
 
