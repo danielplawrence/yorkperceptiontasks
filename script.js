@@ -33,6 +33,7 @@ var sound10 = {file:loadAudio('audio/Bill_northern_bus_auto_spliced.wav'),name:'
 //array of visual stimuli
 var images =[image1,image2,image3,image4,image5,image6,image7,image8];
 var nimages=images.length;
+sessvars.images=images;
 //array of audio stimuli
 var sounds =[sound1,sound2,sound3,sound4,sound5,sound6,sound7,sound8,sound9,sound10];
 var nsounds=sounds.length;
@@ -126,7 +127,7 @@ i++
 
 if (i>=itemslength){
 	//this will eventually be where we terminate the experiment.
-window.location.replace("exit.html");
+window.location.replace("imageratings.html");
   sessvars.myObj=output;
 }
 });
@@ -147,7 +148,7 @@ if (key==69){var sel=tl;}
 if (key==68){var sel=bl;}
 if (key==73){var sel=tr;}
 if (key==74){var sel=br;}
-
+if (key==13){window.location.replace("imageratings.html");}
 console.log("Selected "+sel);
 var obj = images.filter(function ( obj ) {
     return obj.file === sel;
